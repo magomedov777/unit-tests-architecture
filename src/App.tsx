@@ -13,7 +13,7 @@ export type TodolistType = {
     id: string
     title: string
     filter: FilterValuesType
-}
+};
 
 type TasksStateType = {
     [key: string]: Array<TaskType>
