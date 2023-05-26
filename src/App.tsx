@@ -48,6 +48,7 @@ function App() {
         tasks[todolistId] = todolistTasks.filter(t => t.id != id);
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
+        // setTasks({...tasks,[todolistId]:tasks[todolistId].filter(el => el.id !== id)})
     }
 
     function addTask(title: string, todolistId: string) {
@@ -58,6 +59,7 @@ function App() {
         tasks[todolistId] = [task, ...todolistTasks];
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
+        // setTasks({...tasks,[todolistId]:[task, ...tasks[todolistId]]})
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
