@@ -7,7 +7,11 @@ import {Delete} from "@mui/icons-material";
 import {Button, Checkbox} from "@mui/material";
 
 
-
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
 
 type PropsType = {
     id: string
