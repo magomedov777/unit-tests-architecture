@@ -45,11 +45,9 @@ const App = () => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== id) })
     }
 
-    function addTask(title: string, todolistId: string) {
+    const addTask = (title: string, todolistId: string) => {
         let task = { id: v1(), title: title, isDone: false };
-        let todolistTasks = tasks[todolistId];
-        tasks[todolistId] = [task, ...todolistTasks];
-        setTasks({ ...tasks });
+        setTasks({ ...tasks, [todolistId]: [...tasks[todolistId], task] })
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
