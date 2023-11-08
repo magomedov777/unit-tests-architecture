@@ -20,6 +20,8 @@ export type TasksStateType = {
 }
 
 
+
+
 const App = () => {
     let todolistId1 = v1();
     let todolistId2 = v1();
@@ -60,7 +62,8 @@ const App = () => {
     }
 
     const changeFilter = (filter: FilterValuesType, todolistId: string) => {
-        setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === todolistId ? { ...el, filter } : el) })
+        setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter } : el))
+
 
     }
 
