@@ -32,7 +32,6 @@ export const todolistsReducer = (state: Array<TodolistType>, action: TodolistAct
         case 'CHANGE-TODOLIST-TITLE': {
             const todolist = state.find(tl => tl.id === action.id);
             if (todolist) {
-                // если нашёлся - изменим ему заголовок
                 todolist.title = action.title;
             }
             return [...state]
@@ -41,7 +40,7 @@ export const todolistsReducer = (state: Array<TodolistType>, action: TodolistAct
             return state.map(tl => tl.id === action.id ? {...tl, filter: action.filter} : tl)
         }
         default:
-            throw new Error("I don't understand this type")
+            return state
     }
 }
 
@@ -55,5 +54,5 @@ export const ChangeTodolistTitleAC = (todolistId: string, title: string): Change
     return { type: 'CHANGE-TODOLIST-TITLE', title: title, id: todolistId}
 }
 export const ChangeTodolistFilterAC = (todolistId: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
-    return { type: 'CHANGE-TODOLIST-FILTER', filter: filter, id: todolistId}
+    return { type: 'CHANGE-TODOLIST-FILTER', filter, id: todolistId}
 }
